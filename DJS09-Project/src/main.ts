@@ -3,7 +3,8 @@ import "./style.css";
 // Write a function that will only accept numbers and attend to
 // all TypeScript weakness flags.
 // : number
-const reviewTotalDisplay = document.querySelector("#reviews");
+
+// const reviewTotalDisplay = document.querySelector("#reviews");
 
 type Review = {
   id: number;
@@ -14,7 +15,7 @@ type Review = {
 };
 type UpdatedReview = Partial<Review>;
 
-let addId = 1;
+let addId: number = 1;
 
 const reviews: Review[] = [
   {
@@ -39,7 +40,8 @@ const reviews: Review[] = [
     date: "27-03-2021",
   },
 ];
-console.log(reviewTotalDisplay);
+
+const jersey: number[] = [55, 77, 88, 99, 11];
 
 const addNewReview = (review: Omit<Review, "id">): Review => {
   const newUser = {
@@ -80,14 +82,18 @@ const updateReview = (id: number, update: UpdatedReview): void => {
   Object.assign(user, update);
 };
 
+const lastIndex = <T>(array: T[]): T | void => {
+  return array[array.length - 1];
+};
+
 addNewReview({
   name: "Lethabo",
   stars: 3,
   loyaltyUser: false,
   date: "20-09-2024",
 });
-
-updateReview(4, { loyaltyUser: true });
-
 filterReview("lethabo");
+updateReview(4, { loyaltyUser: true });
+console.log(lastIndex<Review>(reviews));
+console.log(lastIndex<Number>(jersey));
 console.log(reviews);
