@@ -1,24 +1,28 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import "./style.css";
+// Number Types mini-challenge 10 10.2
+// Write a function that will only accept numbers and attend to
+// all TypeScript weakness flags.
+// : number
+const reviewTotalDisplay = document.querySelector("#reviews");
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+const reviews = [
+  {
+    name: "Sheia",
+    stars: 5,
+    loyaltyUser: true,
+    date: "01-04-2021",
+  },
+  {
+    name: "Andrzej",
+    stars: 3,
+    loyaltyUser: false,
+    date: "28-03-2021",
+  },
+  {
+    name: "Omar",
+    stars: 4,
+    loyaltyUser: true,
+    date: "27-03-2021",
+  },
+];
+console.log(reviewTotalDisplay, reviews);
