@@ -36,7 +36,28 @@ console.log(reviewTotalDisplay);
 
 const addNewReview = (review: Review): void => {
   reviews.unshift(review);
-  console.log(reviews);
+};
+
+const filterReview = (nameOrStars: string | number): Review | void => {
+  if (typeof nameOrStars === "number") {
+    const star = reviews.filter((obj) => nameOrStars <= obj.stars);
+    if (!star) {
+      throw new Error("REQUESTED FILTER NOT FOUND");
+    } else {
+      for (const obj of star) {
+        console.log(obj);
+      }
+    }
+  } else {
+    const star = reviews.find(
+      (obj) => obj.name.toLowerCase() === nameOrStars.toLowerCase()
+    );
+    if (!star) {
+      throw new Error("REQUESTED FILTER NOT FOUND");
+    } else {
+      console.log(star);
+    }
+  }
 };
 
 addNewReview({
@@ -45,3 +66,4 @@ addNewReview({
   loyaltyUser: false,
   date: "20-09-2024",
 });
+filterReview("lethabo");
