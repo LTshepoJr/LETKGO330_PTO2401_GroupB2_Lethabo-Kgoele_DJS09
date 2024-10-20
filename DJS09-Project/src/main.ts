@@ -41,7 +41,8 @@ const reviews: Review[] = [
 console.log(reviewTotalDisplay);
 
 const addNewReview = (review: Review): void => {
-  reviews.unshift(review);
+  review.id = addId++;
+  reviews.push(review);
 };
 
 const filterReview = (nameOrStars: string | number): Review | void => {
@@ -67,10 +68,10 @@ const filterReview = (nameOrStars: string | number): Review | void => {
 };
 
 addNewReview({
-  id: addId++,
   name: "Lethabo",
   stars: 3,
   loyaltyUser: false,
   date: "20-09-2024",
 });
 filterReview("lethabo");
+console.log(reviews);
