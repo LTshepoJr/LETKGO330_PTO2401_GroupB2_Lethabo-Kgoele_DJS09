@@ -6,26 +6,32 @@ import "./style.css";
 const reviewTotalDisplay = document.querySelector("#reviews");
 
 type Review = {
+  id: number;
   name: string;
   stars: number;
   loyaltyUser: boolean;
   date: string;
 };
 
+let addId = 1;
+
 const reviews: Review[] = [
   {
+    id: addId++,
     name: "Sheia",
     stars: 5,
     loyaltyUser: true,
     date: "01-04-2021",
   },
   {
+    id: addId++,
     name: "Andrzej",
     stars: 3,
     loyaltyUser: false,
     date: "28-03-2021",
   },
   {
+    id: addId++,
     name: "Omar",
     stars: 4,
     loyaltyUser: true,
@@ -61,6 +67,7 @@ const filterReview = (nameOrStars: string | number): Review | void => {
 };
 
 addNewReview({
+  id: addId++,
   name: "Lethabo",
   stars: 3,
   loyaltyUser: false,
