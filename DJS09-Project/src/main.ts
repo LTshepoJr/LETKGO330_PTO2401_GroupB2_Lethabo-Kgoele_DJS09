@@ -34,7 +34,7 @@ const reviews: Review[] = [
 ];
 console.log(reviewTotalDisplay);
 
-const addNewReview = (review: Review) => {
+const addNewReview = (review: Review): void => {
   reviews.unshift(review);
   console.log(reviews);
 };
