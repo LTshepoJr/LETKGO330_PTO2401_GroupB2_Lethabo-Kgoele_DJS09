@@ -5,7 +5,14 @@ import "./style.css";
 // : number
 const reviewTotalDisplay = document.querySelector("#reviews");
 
-const reviews = [
+type Reviews = {
+  name: string;
+  stars: number;
+  loyaltyUser: boolean;
+  date: string;
+};
+
+const reviews: Reviews[] = [
   {
     name: "Sheia",
     stars: 5,
