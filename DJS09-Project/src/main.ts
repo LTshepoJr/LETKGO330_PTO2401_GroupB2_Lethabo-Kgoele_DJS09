@@ -12,6 +12,7 @@ type Review = {
   loyaltyUser: boolean;
   date: string;
 };
+type UpdatedReview = Partial<Review>;
 
 let addId = 1;
 
@@ -67,11 +68,22 @@ const filterReview = (nameOrStars: string | number): Review | void => {
   }
 };
 
+const updateReview = (id: number, update: UpdatedReview): void => {
+  let user = reviews.find((obj) => obj.id === id);
+  if (!user) {
+    throw new Error("NO USER FOUND");
+  }
+  Object.assign(user, update);
+};
+
 addNewReview({
   name: "Lethabo",
   stars: 3,
   loyaltyUser: false,
   date: "20-09-2024",
 });
+
+updateReview(4, { loyaltyUser: true });
+
 filterReview("lethabo");
 console.log(reviews);
