@@ -5,14 +5,14 @@ import "./style.css";
 // : number
 const reviewTotalDisplay = document.querySelector("#reviews");
 
-type Reviews = {
+type Review = {
   name: string;
   stars: number;
   loyaltyUser: boolean;
   date: string;
 };
 
-const reviews: Reviews[] = [
+const reviews: Review[] = [
   {
     name: "Sheia",
     stars: 5,
@@ -32,4 +32,16 @@ const reviews: Reviews[] = [
     date: "27-03-2021",
   },
 ];
-console.log(reviewTotalDisplay, reviews);
+console.log(reviewTotalDisplay);
+
+const addNewReview = (review: Review) => {
+  reviews.unshift(review);
+  console.log(reviews);
+};
+
+addNewReview({
+  name: "Lethabo",
+  stars: 3,
+  loyaltyUser: false,
+  date: "20-09-2024",
+});
