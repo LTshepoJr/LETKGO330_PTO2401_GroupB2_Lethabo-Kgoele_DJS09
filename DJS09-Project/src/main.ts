@@ -41,9 +41,13 @@ const reviews: Review[] = [
 ];
 console.log(reviewTotalDisplay);
 
-const addNewReview = (review: Review): void => {
-  review.id = addId++;
-  reviews.push(review);
+const addNewReview = (review: Omit<Review, "id">): Review => {
+  const newUser = {
+    id: addId++,
+    ...review,
+  };
+  reviews.push(newUser);
+  return newUser;
 };
 
 const filterReview = (nameOrStars: string | number): Review | void => {
